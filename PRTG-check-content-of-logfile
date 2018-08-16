@@ -1,0 +1,16 @@
+#!/bin/bash
+#Skript prüft ob rsync der QNAP erfolgreich war oder nciht.
+#14.08.2018 - Sven Rath
+
+if [[ "$(cat /root/qnapstatus.txt)" -eq 0 ]]; then
+     status=0
+else status=2
+fi
+
+if [[ $status != 0 ]];then
+                alarm=2:2:"QNAP Script pruefen: $host"
+            else    alarm=0:0:"QNAP Backup OK"
+        fi
+
+echo $alarm
+exit 0
