@@ -26,11 +26,7 @@
 #LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
-#
-#
-# What this sript does:
-#   Simple bash script to execute ceph -s command and filter it for the 3 important states OK, WARNING and ERROR.
-#   Output into PRTG format to integrate into your PRTG monitoring (ssh custom script) put into /var/prtg/scripts
+
 
 
 # Setzt max Alter auf 28h
