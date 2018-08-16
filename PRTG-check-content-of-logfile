@@ -40,4 +40,3 @@ if [[ $status != 0 ]];then
         fi
 
 echo $alarm
-exit 0
