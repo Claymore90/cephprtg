@@ -1,0 +1,23 @@
+#!/bin/bash
+# Prueft ob Datei juenger oder aelter als 28h.
+# Sven Rath - 16.08.2018
+
+
+# Setzt max Alter auf 28h
+MAXAGE=$(bc <<< '28*60*60') # seconds in 28 hours
+
+# Prueft wie alt  die Date ist
+FILEAGE=$(($(date +%s) - $(stat -c '%Y' "/root/qnapstatus.txt")))
+
+
+if [[ $FILEAGE -lt $MAXAGE ]]; then
+     status=0
+else status=2
+fi
+
+if [[ $status != 0 ]];then
+                alarm=2:2:"QNAP Script pruefen: $host"
+            else    alarm=0:0:"QNAP Backup OK"
+        fi
+
+echo $alarm
