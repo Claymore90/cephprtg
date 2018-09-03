@@ -1,0 +1,17 @@
+#Skipt to check disksize and e-Mail if alarm is triggered.
+#!/bin/bash
+
+LIMIT='80'
+DIR='/'
+MAILTO='MAIL@DOMAIN.TLD'
+SUBJECT="$DIR disk usage"
+MAILX='mailx'
+
+cd $DIR
+USED=`df . | awk '{print $5}' | sed -ne 2p | cut -d"%" -f1`
+
+if [ $USED -gt $LIMIT ]
+then
+ echo check disk | mailx -r "sender@DOMAIN.TLD" -s "Disk space Server" "$MAILTO"
+fi
+exit 0
